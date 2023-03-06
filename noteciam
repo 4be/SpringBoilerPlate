@@ -1,0 +1,37 @@
+AccountBinding
+
+https://auth-ciam-dev.devs.banksinarmas.com/am/XUI/?realm=/bsc&goto=https%3A%2F%2Fauth-ciam-dev.devs.banksinarmas.com%3A443%2Fam%2Foauth2%2Frealms%2Froot%2Frealms%2Fbsc%2Fauthorize%3Fclient_id%3DclientOIDC_0%26response_type%3Dcode%26scope%3Dopenid%2520profile%26state%3Dabc123%26nonce%3D123abc%26redirect_uri%3Dhttp%3A%2F%2Ffake.com%26appId%3Dabc1%26isPassword%3Dtrue#/
+
+parameter
+Merchant Id(mandatory)
+
+bsc
+clientId (xPartnerId)
+parameter
+partnerReference( State)
+Redirect url (dari client)
+appId(ApplicationName)
+isPassword(true)
+RedirectUrl()
+
+
+B2B2C
+
+{
+   "grantType":"client_credentials",
+   "authCode": "1234",
+   "additionalInfo":{
+       "clientSecret": "sag-admin",
+       "scope": "write"
+   }
+}
+
+
+{
+    "accessToken": "H-vwM41s7w3RrDE7hcwE4AIyLrY",
+    "tokenType": "Bearer",
+    "additionalInfo": {
+        "scope": "write"
+    }
+}
+

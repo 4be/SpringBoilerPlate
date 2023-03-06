@@ -13,20 +13,24 @@ import static org.junit.jupiter.api.Assumptions.*;
 
 @Tag("Calculator-test")
 @DisplayNameGeneration(SimpleDisplayNameGenerator.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CalculatorTest {
 
     final Calculator calculator = new Calculator();
 
+    //run sebelum test paling awal
     @BeforeAll
     public static void awalanSemua(){
         System.out.println("awalan Semua");
     }
 
+    //run setiap sebelum test berjalan
     @BeforeEach
     public void startUp(){
         System.out.println("Mulai dulu");
     }
 
+    //run setiap test berakhir
     @AfterEach
     void endUp(){
         System.out.println("Akhir dulu");
@@ -49,12 +53,14 @@ class CalculatorTest {
         assertThrows(IllegalArgumentException.class,()-> calculator.divide(5,0));
     }
 
+    //disable unit test
     @Test
     @Disabled
     void commingSoon(){
 
     }
 
+    //test get env TestAbortedException
     @Test
     void GetEnv(){
         var getStage = System.getenv("stage");
@@ -63,11 +69,13 @@ class CalculatorTest {
         }
     }
 
+    //test menggunakan asumsi berdasarkan enviroment
     @Test
     void TestAsumtion(){
         assumeTrue("prod".equals(System.getenv("stage")));
     }
 
+    //enable and disable OS / JRE
     @Test
     @EnabledOnOs({OS.WINDOWS})
     @DisabledOnJre({JRE.JAVA_11})
@@ -76,13 +84,16 @@ class CalculatorTest {
     }
 
 
+    //print tiap properties
     @Test
+    @Order(1) //urutan order
     void testPropertiesValue(){
         Properties properties = System.getProperties();
         properties.forEach((key,value)->System.out.println(key+":"+value));
     }
 
 
+    //test berjalan jika system properties sesuai dengan kondisi
     @Test
     @EnabledIfSystemProperties({
             @EnabledIfSystemProperty(named = "user.language", matches = "id ")
@@ -91,5 +102,6 @@ class CalculatorTest {
         System.out.println("its running");
 
     }
+
 
 }
