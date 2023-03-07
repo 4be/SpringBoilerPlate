@@ -5,4 +5,6 @@ import com.abe.templates.models.Person;
 public interface PersonRepository {
 
         Person selectById(String id);
+
+        void Insert(Person person);
 }

@@ -3,6 +3,8 @@ package com.abe.templates.services;
 import com.abe.templates.models.Person;
 import com.abe.templates.repository.PersonRepository;
 
+import java.util.UUID;
+
 public class PersonService {
 
         private PersonRepository personRepository;
@@ -18,5 +20,12 @@ public class PersonService {
                 }else {
                         throw new IllegalArgumentException("wew");
                 }
+        }
+
+        public Person register(String name){
+                Person person = new Person(UUID.randomUUID().toString(),name);
+                personRepository.Insert(person);
+
+                return person;
         }
 }
