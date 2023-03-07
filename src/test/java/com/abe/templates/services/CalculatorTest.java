@@ -18,6 +18,9 @@ class CalculatorTest {
 
     final Calculator calculator = new Calculator();
 
+    private int counter = 0;
+
+
     //run sebelum test paling awal
     @BeforeAll
     public static void awalanSemua(){
@@ -88,8 +91,10 @@ class CalculatorTest {
     @Test
     @Order(1) //urutan order
     void testPropertiesValue(){
-        Properties properties = System.getProperties();
-        properties.forEach((key,value)->System.out.println(key+":"+value));
+        counter++;
+        System.out.println(counter);
+//        Properties properties = System.getProperties();
+//        properties.forEach((key,value)->System.out.println(key+":"+value));
     }
 
 
